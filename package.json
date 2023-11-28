@@ -1,11 +1,12 @@
 {
   "name": "myflix-client",
   "version": "1.0.0",
-  "description": "",
+  "description": "user-interface for myFlix database",
   "scripts": {
+    "start": "parcel index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Henry Nguyen",
   "license": "ISC",
   "dependencies": {
     "react": "^18.2.0",
