@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { MovieCard } from "../movie-card/movie-card";
-import { onMovieClick } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 
 export const MainView = () => {
+  console.log("Rendered1")
   const [movies, setMovies] = useState ([
     {
-      _id: ObjectId("655128181c4ee4acdf92e2c7"),
+      _id: "655128181c4ee4acdf92e2c7",
       Title: 'Jurassic Park',
       Description: 'Adventure in a dinosaur theme park',
       ReleaseYear: 1993,
@@ -22,7 +22,7 @@ export const MainView = () => {
       Image: 'jurassic_park.jpg'
     },
     {
-      _id: ObjectId("655128181c4ee4acdf92e2c8"),
+      _id: "655128181c4ee4acdf92e2c8",
       Title: 'Blade Runner 2049',
       Description: 'Sci-fi film set in a dystopian future',
       ReleaseYear: 2017,
@@ -38,7 +38,7 @@ export const MainView = () => {
       Image: 'blade_runner_2049.jpg'
     },
     {
-      _id: ObjectId("655128181c4ee4acdf92e2c9"),
+      _id: "655128181c4ee4acdf92e2c9",
       Title: 'Pulp Fiction',
       Description: 'Crime and black comedy',
       ReleaseYear: 1994,
@@ -54,7 +54,7 @@ export const MainView = () => {
       Image: 'pulp_fiction.jpg'
     },
     {
-      _id: ObjectId("655128181c4ee4acdf92e2ca"),
+      _id: "655128181c4ee4acdf92e2ca",
       Title: 'Inception',
       Description: 'Mind-bending heist thriller',
       ReleaseYear: 2010,
@@ -70,7 +70,7 @@ export const MainView = () => {
       Image: 'inception.jpg'
     },
     {
-      _id: ObjectId("655128181c4ee4acdf92e2cb"),
+      _id: "655128181c4ee4acdf92e2cb",
       Title: 'Goodfellas',
       Description: 'A gripping crime drama based on real-life events.',
       ReleaseYear: 1990,
@@ -86,7 +86,7 @@ export const MainView = () => {
       Image: 'goodfellas.jpg'
     },
     {
-      _id: ObjectId("655128181c4ee4acdf92e2cc"),
+      _id: "655128181c4ee4acdf92e2cc",
       Title: 'E.T. the Extra-Terrestrial',
       Description: 'A boy befriends an alien',
       ReleaseYear: 1982,
@@ -102,7 +102,7 @@ export const MainView = () => {
       Image: 'et.jpg'
     },
     {
-      _id: ObjectId("655128181c4ee4acdf92e2cd"),
+      _id: "655128181c4ee4acdf92e2cd",
       Title: 'Django Unchained',
       Description: 'A bounty hunter and a slave seek revenge',
       ReleaseYear: 2012,
@@ -118,7 +118,7 @@ export const MainView = () => {
       Image: 'django_unchained.jpg'
     },
     {
-      _id: ObjectId("655128181c4ee4acdf92e2ce"),
+      _id: "655128181c4ee4acdf92e2ce",
       Title: 'The Dark Knight',
       Description: 'Batman battles the Joker',
       ReleaseYear: 2008,
@@ -134,7 +134,7 @@ export const MainView = () => {
       Image: 'dark_knight.jpg'
     },
     {
-      _id: ObjectId("655128181c4ee4acdf92e2cf"),
+      _id: "655128181c4ee4acdf92e2cf",
       Title: 'The Departed',
       Description: 'Undercover cops in the Irish mob',
       ReleaseYear: 2006,
@@ -150,7 +150,7 @@ export const MainView = () => {
       Image: 'the_departed.jpg'
     },
     {
-      _id: ObjectId("655128181c4ee4acdf92e2d0"),
+      _id: "655128181c4ee4acdf92e2d0",
       Title: 'Sicario',
       Description: 'A gritty drug war thriller.',
       ReleaseYear: 2015,
@@ -170,10 +170,13 @@ export const MainView = () => {
   const [selectedMovie, setSelectedMovie] = useState(null);
 
   if (selectedMovie) {
-    return <MovieView movie={selectedMovie} onBackClick={() => setSelectedBook(null)} />;
-  }
+    console.log("Rendered2");
+    return <MovieView movie={selectedMovie}
+      onBackClick={() => setSelectedMovie(null)} />;
+  };
 
   if (movies.length === 0) {
+    console.log("Rendered3");
     return <div>Your movie list is empty!</div>
   };
 
@@ -181,11 +184,11 @@ export const MainView = () => {
     <div>
       {movies.map((movie) => (
         <MovieCard
-          key={movie.id}
+          key={movie._id}
           movie={movie}
-          onMovieClick={(newSelectedMovie) =>
-            setSelectedMovie(newSelectedMovie)
-          }
+          onMovieClick={(newSelectedMovie) => {
+            setSelectedMovie(newSelectedMovie);
+          }}
         />
       ))}
     </div>

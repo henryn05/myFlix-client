@@ -2944,44 +2944,32 @@ $parcel$ReactRefreshHelpers$98a3.prelude(module);
 try {
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _client = require("react-dom/client");
-// Import statement to indicate that you need to bundle `./index.scss`
+var _mainView = require("./components/main-view/main-view");
 var _indexScss = require("./index.scss");
-// Main component (will eventually use all the others)
-const MyFlixApplication = ()=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "my-flix",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            children: "Good morning"
-        }, void 0, false, {
-            fileName: "src/index.jsx",
-            lineNumber: 10,
-            columnNumber: 7
-        }, undefined)
-    }, void 0, false, {
+const MyFlixApp = ()=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mainView.MainView), {}, void 0, false, {
         fileName: "src/index.jsx",
-        lineNumber: 9,
-        columnNumber: 5
+        lineNumber: 6,
+        columnNumber: 10
     }, undefined);
 };
-_c = MyFlixApplication;
-// Finds the root of your app
+_c = MyFlixApp;
 const container = document.querySelector("#root");
 const root = (0, _client.createRoot)(container);
-// Tells React to render your app in the root DOM element
-root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(MyFlixApplication, {}, void 0, false, {
+root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(MyFlixApp, {}, void 0, false, {
     fileName: "src/index.jsx",
-    lineNumber: 20,
+    lineNumber: 11,
     columnNumber: 13
 }, undefined));
 var _c;
-$RefreshReg$(_c, "MyFlixApplication");
+$RefreshReg$(_c, "MyFlixApp");
 
   $parcel$ReactRefreshHelpers$98a3.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-dom/client":"lOjBx","./index.scss":"lJZlQ","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-dom/client":"lOjBx","./components/main-view/main-view":"4gflv","./index.scss":"lJZlQ","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("ee51401569654d91");
 
@@ -27168,7 +27156,298 @@ module.exports = require("ef03b89c8fe2794e");
     /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop === "function") __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(new Error());
 })();
 
-},{}],"lJZlQ":[function() {},{}],"km3Ru":[function(require,module,exports) {
+},{}],"4gflv":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$f7a6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$f7a6.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "MainView", ()=>MainView);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _movieCard = require("../movie-card/movie-card");
+var _movieView = require("../movie-view/movie-view");
+var _s = $RefreshSig$();
+const MainView = ()=>{
+    _s();
+    console.log("Rendered1");
+    const [movies, setMovies] = (0, _react.useState)([
+        {
+            _id: "655128181c4ee4acdf92e2c7",
+            Title: "Jurassic Park",
+            Description: "Adventure in a dinosaur theme park",
+            ReleaseYear: 1993,
+            Genre: {
+                Name: "Adventure",
+                Description: "Exciting journeys and experiences in unknown or dangerous places."
+            },
+            Director: {
+                Name: "Steven Spielberg",
+                Bio: "Prolific American filmmaker known for his wide range of successful films, including E.T., Jurassic Park, and Schindler's List.",
+                Birthdate: "1946-12-18"
+            },
+            Image: "jurassic_park.jpg"
+        },
+        {
+            _id: "655128181c4ee4acdf92e2c8",
+            Title: "Blade Runner 2049",
+            Description: "Sci-fi film set in a dystopian future",
+            ReleaseYear: 2017,
+            Genre: {
+                Name: "Science Fiction",
+                Description: "Speculative fiction based on imaginative and futuristic scientific and technological advances."
+            },
+            Director: {
+                Name: "Denis Villeneuve",
+                Bio: "Canadian filmmaker known for visually stunning and thought-provoking films like Blade Runner 2049 and Arrival.",
+                Birthdate: "1967-10-03"
+            },
+            Image: "blade_runner_2049.jpg"
+        },
+        {
+            _id: "655128181c4ee4acdf92e2c9",
+            Title: "Pulp Fiction",
+            Description: "Crime and black comedy",
+            ReleaseYear: 1994,
+            Genre: {
+                Name: "Adventure",
+                Description: "Exciting journeys and experiences in unknown or dangerous places."
+            },
+            Director: {
+                Name: "Quentin Tarantino",
+                Bio: "Iconic American director celebrated for his unique storytelling style and bold, genre-defying films like Pulp Fiction and Kill Bill.",
+                Birthdate: "1963-03-27"
+            },
+            Image: "pulp_fiction.jpg"
+        },
+        {
+            _id: "655128181c4ee4acdf92e2ca",
+            Title: "Inception",
+            Description: "Mind-bending heist thriller",
+            ReleaseYear: 2010,
+            Genre: {
+                Name: "Science Fiction",
+                Description: "Speculative fiction based on imaginative and futuristic scientific and technological advances."
+            },
+            Director: {
+                Name: "Christopher Nolan",
+                Bio: "British director acclaimed for mind-bending narratives and visually groundbreaking films such as Inception and The Dark Knight trilogy.",
+                Birthdate: "1970-07-30"
+            },
+            Image: "inception.jpg"
+        },
+        {
+            _id: "655128181c4ee4acdf92e2cb",
+            Title: "Goodfellas",
+            Description: "A gripping crime drama based on real-life events.",
+            ReleaseYear: 1990,
+            Genre: {
+                Name: "Crime",
+                Description: "Involves investigations, mysteries, and criminal activities."
+            },
+            Director: {
+                Name: "Martin Scorsese",
+                Bio: "Legendary director recognized for his masterful depictions of crime, morality, and complex characters in films like Goodfellas and The Irishman.",
+                Birthdate: "1942-11-17"
+            },
+            Image: "goodfellas.jpg"
+        },
+        {
+            _id: "655128181c4ee4acdf92e2cc",
+            Title: "E.T. the Extra-Terrestrial",
+            Description: "A boy befriends an alien",
+            ReleaseYear: 1982,
+            Genre: {
+                Name: "Science Fiction",
+                Description: "Speculative fiction based on imaginative and futuristic scientific and technological advances."
+            },
+            Director: {
+                Name: "Steven Spielberg",
+                Bio: "Prolific American filmmaker known for his wide range of successful films, including E.T., Jurassic Park, and Schindler's List.",
+                Birthdate: "1946-12-18"
+            },
+            Image: "et.jpg"
+        },
+        {
+            _id: "655128181c4ee4acdf92e2cd",
+            Title: "Django Unchained",
+            Description: "A bounty hunter and a slave seek revenge",
+            ReleaseYear: 2012,
+            Genre: {
+                Name: "Adventure",
+                Description: "Exciting journeys and experiences in unknown or dangerous places."
+            },
+            Director: {
+                Name: "Quentin Tarantino",
+                Bio: "Iconic American director celebrated for his unique storytelling style and bold, genre-defying films like Pulp Fiction and Kill Bill.",
+                Birthdate: "1963-03-27"
+            },
+            Image: "django_unchained.jpg"
+        },
+        {
+            _id: "655128181c4ee4acdf92e2ce",
+            Title: "The Dark Knight",
+            Description: "Batman battles the Joker",
+            ReleaseYear: 2008,
+            Genre: {
+                Name: "Adventure",
+                Description: "Exciting journeys and experiences in unknown or dangerous places."
+            },
+            Director: {
+                Name: "Christopher Nolan",
+                Bio: "British director acclaimed for mind-bending narratives and visually groundbreaking films such as Inception and The Dark Knight trilogy.",
+                Birthdate: "1970-07-30"
+            },
+            Image: "dark_knight.jpg"
+        },
+        {
+            _id: "655128181c4ee4acdf92e2cf",
+            Title: "The Departed",
+            Description: "Undercover cops in the Irish mob",
+            ReleaseYear: 2006,
+            Genre: {
+                Name: "Crime",
+                Description: "Involves investigations, mysteries, and criminal activities."
+            },
+            Director: {
+                Name: "Martin Scorsese",
+                Bio: "Legendary director recognized for his masterful depictions of crime, morality, and complex characters in films like Goodfellas and The Irishman.",
+                Birthdate: "1942-11-17"
+            },
+            Image: "the_departed.jpg"
+        },
+        {
+            _id: "655128181c4ee4acdf92e2d0",
+            Title: "Sicario",
+            Description: "A gritty drug war thriller.",
+            ReleaseYear: 2015,
+            Genre: {
+                Name: "Crime",
+                Description: "Involves investigations, mysteries, and criminal activities."
+            },
+            Director: {
+                Name: "Denis Villeneuve",
+                Bio: "Canadian filmmaker known for visually stunning and thought-provoking films like Blade Runner 2049 and Arrival.",
+                Birthdate: "1967-10-03"
+            },
+            Image: "sicario.jpg"
+        }
+    ]);
+    const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
+    if (selectedMovie) {
+        console.log("Rendered2");
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
+            movie: selectedMovie,
+            onBackClick: ()=>setSelectedMovie(null)
+        }, void 0, false, {
+            fileName: "src/components/main-view/main-view.jsx",
+            lineNumber: 174,
+            columnNumber: 12
+        }, undefined);
+    }
+    if (movies.length === 0) {
+        console.log("Rendered3");
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            children: "Your movie list is empty!"
+        }, void 0, false, {
+            fileName: "src/components/main-view/main-view.jsx",
+            lineNumber: 180,
+            columnNumber: 12
+        }, undefined);
+    }
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
+                movie: movie,
+                onMovieClick: (newSelectedMovie)=>{
+                    setSelectedMovie(newSelectedMovie);
+                }
+            }, movie._id, false, {
+                fileName: "src/components/main-view/main-view.jsx",
+                lineNumber: 186,
+                columnNumber: 9
+            }, undefined))
+    }, void 0, false, {
+        fileName: "src/components/main-view/main-view.jsx",
+        lineNumber: 184,
+        columnNumber: 5
+    }, undefined);
+};
+_s(MainView, "TXGRwN7eIAkN9nOsRzQ9rfdCOgA=");
+_c = MainView;
+var _c;
+$RefreshReg$(_c, "MainView");
+
+  $parcel$ReactRefreshHelpers$f7a6.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../movie-card/movie-card":"bwuIu","../movie-view/movie-view":"ggaUx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"bwuIu":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$67b2 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$67b2.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "MovieCard", ()=>MovieCard);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const MovieCard = ({ movie, onMovieClick })=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        onClick: ()=>{
+            onMovieClick(movie);
+        },
+        children: movie.title
+    }, void 0, false, {
+        fileName: "src/components/movie-card/movie-card.jsx",
+        lineNumber: 3,
+        columnNumber: 5
+    }, undefined);
+};
+_c = MovieCard;
+var _c;
+$RefreshReg$(_c, "MovieCard");
+
+  $parcel$ReactRefreshHelpers$67b2.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || Object.prototype.hasOwnProperty.call(dest, key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"km3Ru":[function(require,module,exports) {
 "use strict";
 var Refresh = require("7422ead32dcc1e6b");
 function debounce(func, delay) {
@@ -27306,6 +27585,104 @@ function registerExportsForReactRefresh(module1) {
     }
 }
 
-},{"7422ead32dcc1e6b":"786KC"}]},["d8m58","1xC6H","d8Dch"], "d8Dch", "parcelRequireaec4")
+},{"7422ead32dcc1e6b":"786KC"}],"ggaUx":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$e9f6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$e9f6.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "MovieView", ()=>MovieView);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const MovieView = ({ movie })=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                    src: movie.image
+                }, void 0, false, {
+                    fileName: "src/components/movie-view/movie-view.jsx",
+                    lineNumber: 5,
+                    columnNumber: 9
+                }, undefined)
+            }, void 0, false, {
+                fileName: "src/components/movie-view/movie-view.jsx",
+                lineNumber: 4,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        children: "Title: "
+                    }, void 0, false, {
+                        fileName: "src/components/movie-view/movie-view.jsx",
+                        lineNumber: 8,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        children: [
+                            movie.title,
+                            " "
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/movie-view/movie-view.jsx",
+                        lineNumber: 9,
+                        columnNumber: 9
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/movie-view/movie-view.jsx",
+                lineNumber: 7,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        children: "Director: "
+                    }, void 0, false, {
+                        fileName: "src/components/movie-view/movie-view.jsx",
+                        lineNumber: 12,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        children: movie.director
+                    }, void 0, false, {
+                        fileName: "src/components/movie-view/movie-view.jsx",
+                        lineNumber: 13,
+                        columnNumber: 9
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/movie-view/movie-view.jsx",
+                lineNumber: 11,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: onBackClick,
+                children: " Back "
+            }, void 0, false, {
+                fileName: "src/components/movie-view/movie-view.jsx",
+                lineNumber: 15,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/movie-view/movie-view.jsx",
+        lineNumber: 3,
+        columnNumber: 5
+    }, undefined);
+};
+_c = MovieView;
+var _c;
+$RefreshReg$(_c, "MovieView");
+
+  $parcel$ReactRefreshHelpers$e9f6.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lJZlQ":[function() {},{}]},["d8m58","1xC6H","d8Dch"], "d8Dch", "parcelRequireaec4")
 
 //# sourceMappingURL=index.b4b6dfad.js.map
