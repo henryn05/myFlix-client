@@ -15,19 +15,15 @@ export const MainView = () => {
         const moviesFromApi = data.map((movie) => {
           return {
             _id: movie._id,
-            title: movie.Title,
-            image: movie.Image,
-            description: movie.Description,
-            releaseYear: movie.ReleaseYear,
-            featured: movie.Featured,
-            genre: {
-              name: movie.Genre.Name,
-              description: movie.Genre.Description
+            Title: movie.Title,
+            Image: movie.Image,
+            Description: movie.Description,
+            ReleaseYear: movie.ReleaseYear,
+            Genre: {
+              Name: movie.Genre.Name,
             },
-            director: {
-              name: movie.Director.Name,
-              bio: movie.Director.Bio,
-              birthdate: movie.Director.Birthdate
+            Director: {
+              Name: movie.Director.Name,
             },
           };
         });
@@ -48,22 +44,22 @@ export const MainView = () => {
     return <div>Your movie list is empty!</div>
   };
 
-return (
-  <div>
-    {movies.map((movie, index) => {
-      console.log(`Movie ${index + 1} ID:`, movie._id); // Log the _id for each movie
-      return (
-        <MovieCard
-          key={String(movie._id)}
-          movie={movie}
-          onMovieClick={(newSelectedMovie) => {
-            console.log('Clicked movie:', newSelectedMovie); // Log the clicked movie
-            setSelectedMovie(newSelectedMovie);
-          }}
-        />
-      );
-    })}
-  </div>
-);
+  return (
+    <div>
+      {movies.map((movie, index) => {
+        console.log(`Movie ${index + 1} ID:`, movie._id);
+        return (
+          <MovieCard
+            key={String(movie._id)}
+            movie={movie}
+            onMovieClick={(newSelectedMovie) => {
+              console.log(`Movie image:  ${movie.Image}`);
+              setSelectedMovie(newSelectedMovie);
+            }}
+          />
+        );
+      })}
+    </div>
+  );
 
 };

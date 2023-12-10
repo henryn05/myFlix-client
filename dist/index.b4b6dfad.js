@@ -27180,19 +27180,15 @@ const MainView = ()=>{
             const moviesFromApi = data.map((movie)=>{
                 return {
                     _id: movie._id,
-                    title: movie.Title,
-                    image: movie.Image,
-                    description: movie.Description,
-                    releaseYear: movie.ReleaseYear,
-                    featured: movie.Featured,
-                    genre: {
-                        name: movie.Genre.Name,
-                        description: movie.Genre.Description
+                    Title: movie.Title,
+                    Image: movie.Image,
+                    Description: movie.Description,
+                    ReleaseYear: movie.ReleaseYear,
+                    Genre: {
+                        Name: movie.Genre.Name
                     },
-                    director: {
-                        name: movie.Director.Name,
-                        bio: movie.Director.Bio,
-                        birthdate: movie.Director.Birthdate
+                    Director: {
+                        Name: movie.Director.Name
                     }
                 };
             });
@@ -27207,35 +27203,35 @@ const MainView = ()=>{
         onBackClick: ()=>setSelectedMovie(null)
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 43,
+        lineNumber: 39,
         columnNumber: 12
     }, undefined);
     if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: "Your movie list is empty!"
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 48,
+        lineNumber: 44,
         columnNumber: 12
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: movies.map((movie, index)=>{
-            console.log(`Movie ${index + 1} ID:`, movie._id); // Log the _id for each movie
+            console.log(`Movie ${index + 1} ID:`, movie._id);
             return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
                 movie: movie,
                 onMovieClick: (newSelectedMovie)=>{
-                    console.log("Clicked movie:", newSelectedMovie); // Log the clicked movie
+                    console.log(`Movie image:  ${movie.Image}`);
                     setSelectedMovie(newSelectedMovie);
                 }
             }, String(movie._id), false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 56,
-                columnNumber: 9
+                lineNumber: 52,
+                columnNumber: 11
             }, undefined);
         })
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 52,
-        columnNumber: 3
+        lineNumber: 48,
+        columnNumber: 5
     }, undefined);
 };
 _s(MainView, "PO+XgOji7E32nFJj3H5UPLPJ7w4=");
@@ -27276,8 +27272,8 @@ const MovieCard = ({ movie, onMovieClick })=>{
 _c = MovieCard;
 MovieCard.propTypes = {
     movie: (0, _propTypesDefault.default).shape({
-        title: (0, _propTypesDefault.default).string.isRequired,
-        image: (0, _propTypesDefault.default).string.isRequired
+        Title: (0, _propTypesDefault.default).string.isRequired,
+        Image: (0, _propTypesDefault.default).string.isRequired
     }).isRequired,
     onMovieClick: (0, _propTypesDefault.default).func.isRequired
 };
