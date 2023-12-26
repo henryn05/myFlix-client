@@ -61,7 +61,7 @@ export const LoginView = ({onLoggedIn}) => {
           maxLength="25"
         />
       </Form.Group>
-      <Button variant="Primary" type="submit"> Login</Button>
+      <Button variant="primary" type="submit"> Login</Button>
     </Form>
   );
-}
+};
