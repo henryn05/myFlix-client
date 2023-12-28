@@ -3,6 +3,7 @@ import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
+import { Row, Col, Button } from "react-bootstrap";
 
 export const MainView = () => {
   const [movies, setMovies] = useState ([]);
@@ -28,29 +29,35 @@ export const MainView = () => {
 
   if (!user) {
     return (
-      <>
-        <LoginView onLoggedIn={(user, token) => {
-          setUser(user);
-          setToken(token);
-        }} />
-        or
-        <SignupView />
-      </>
+      <Row className="justify-content-center">
+        <Col>
+          <LoginView
+            onLoggedIn={(user, token) => {
+              setUser(user);
+              setToken(token);
+            }}
+          />
+        </Col>
+        <Col>
+          <SignupView />
+        </Col>
+      </Row>
     );
   }
 
   if (selectedMovie) {
     return (
       <>
-        <button
+        <Button
           onClick={() => {
             setUser(null);
             setToken(null);
             localStorage.clear();
           }}
+          variant="primary"
         >
           Logout
-        </button>
+        </Button>
         <MovieView
           movie={selectedMovie}
           onBackClick={() => setSelectedMovie(null)}
