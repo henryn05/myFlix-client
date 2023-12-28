@@ -27,61 +27,52 @@ export const MainView = () => {
       });
   }, [token]);
 
-  if (!user) {
-    return (
-      <Row className="justify-content-center">
-        <Col>
+  return (
+    <Row className="justify-content-md-center">
+      {!user ? (
+        <Col md={4}>
           <LoginView
             onLoggedIn={(user, token) => {
               setUser(user);
               setToken(token);
             }}
           />
-        </Col>
-        <Col>
           <SignupView />
         </Col>
-      </Row>
-    );
-  }
-
-  if (selectedMovie) {
-    return (
-      <>
-        <Button
-          onClick={() => {
-            setUser(null);
-            setToken(null);
-            localStorage.clear();
-          }}
-          variant="primary"
-        >
-          Logout
-        </Button>
-        <MovieView
-          movie={selectedMovie}
-          onBackClick={() => setSelectedMovie(null)}
-        />
-      </>
-    );
-  }
-
-  if (movies.length === 0) {
-    return <div>Your movie list is empty!</div>
-  };
-
-  return (
-    <div>
-      {movies.map((movie) => (
-        <MovieCard
-          key={movie._id}
-          movie={movie}
-          onMovieClick={(newSelectedMovie) => {
-            setSelectedMovie(newSelectedMovie);
-          }}
-        />
-      ))}
-    </div>
+      ) : selectedMovie ? (
+        <Col md={8}>
+          <MovieView
+            movie={selectedMovie}
+            onBackClick={() => setSelectedMovie(null)}
+          />
+        </Col>
+      ) : movies.length === 0 ? (
+        <div>Your movie list is empty!</div>
+      ) : (
+        <>
+          {movies.map((movie) => (
+            <Col className="mb-4" key={movie._id} md={3}>
+              <MovieCard
+                movie={movie}
+                onMovieClick={(newSelectedMovie) => {
+                  setSelectedMovie(newSelectedMovie);
+                }}
+              />
+            </Col>
+          ))}
+          <Button
+            className="mb-4"
+            onClick={() => {
+              setUser(null);
+              setToken(null);
+              localStorage.clear();
+            }}
+            variant="primary"
+          >
+            Logout
+          </Button>
+        </>
+      )}
+    </Row>
   );
-
 };
