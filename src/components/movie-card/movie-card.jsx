@@ -12,7 +12,7 @@ export const MovieCard = ({movie, onMovieClick}) => {
           onClick={() => onMovieClick(movie)}
           variant="link"
         >
-            Open
+          Open
         </Button>
       </Card.Body>
     </Card>

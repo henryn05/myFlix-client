@@ -28,16 +28,18 @@ export const MainView = () => {
   }, [token]);
 
   return (
-    <Row className="justify-content-md-center">
+    <Row className="d-flex justify-content-center">
       {!user ? (
-        <Col md={4}>
+        <Col md={6}>
           <LoginView
             onLoggedIn={(user, token) => {
               setUser(user);
               setToken(token);
             }}
           />
-          <SignupView />
+          <Row className="justify-content-center">
+          </Row>
+          <SignupView/>
         </Col>
       ) : selectedMovie ? (
         <Col md={8}>

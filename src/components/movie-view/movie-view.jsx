@@ -1,32 +1,17 @@
-import Button from "react-bootstrap/Button";
+import { Button, Card, Row, Col } from "react-bootstrap";
 
 export const MovieView = ({ movie, onBackClick }) => {
   return (
-    <div>
-      <div>
-        <img src={movie.Image} alt="Movie Poster" />
-      </div>
-      <div>
-        <span>Title: </span>
-        <span>{movie.Title}</span>
-      </div>
-      <div>
-        <span>Description: </span>
-        <span>{movie.Description}</span>
-      </div>
-      <div>
-        <span>Release Year: </span>
-        <span>{movie.ReleaseYear}</span>
-      </div>
-      <div>
-        <span>Genre: </span>
-        <span>{movie.Genre.Name}</span>
-      </div>
-      <div>
-        <span>Director: </span>
-        <span>{movie.Director.Name}</span>
-      </div>
+    <Row>
+      <Card className="my-3 h-100">
+        <Card.Img variant="top" src={movie.Image}/>
+        <Card.Text>Title: {movie.Title}</Card.Text>
+        <Card.Text>Description: {movie.Description}</Card.Text>
+        <Card.Text>Release Year: {movie.ReleaseYear}</Card.Text>
+        <Card.Text>Genre: {movie.Genre.Name}</Card.Text>
+        <Card.Text>Director: {movie.Director.Name}</Card.Text>
+      </Card>
       <Button onClick={onBackClick}> Back </Button>
-    </div>
+    </Row>
   );
 };
