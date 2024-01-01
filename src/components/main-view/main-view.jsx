@@ -74,9 +74,7 @@ export const MainView = () => {
                   <Col>Your movie list is empty!</Col>
                 ) : (
                   <Col md={8}>
-                    <MovieView movie={selectedMovie}
-                      onBackClick={() => setSelectedMovie(null)}
-                    />
+                    <MovieView movies={movies} />
                   </Col>
                 )}
               </>
@@ -94,13 +92,10 @@ export const MainView = () => {
                   <>
                     {movies.map((movie) => (
                       <Col className="mb-4" key={movie._id} md={3}>
-                        <MovieCard movie={movie}
-                          onMovieClick={(newSelectedMovie) => {
-                          setSelectedMovie(newSelectedMovie);
-                        }}/>
+                        <MovieCard movie={movie} />
                       </Col>
                     ))}
-                    <Button
+                      <Button
                         className="mb-4"
                         onClick={() => {
                           setUser(null);
