@@ -2,6 +2,7 @@ import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
+import { ProfileView } from "../profile-view/profile-view";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
 
 import { useState, useEffect } from "react";
@@ -73,6 +74,20 @@ export const MainView = () => {
             }
           />
           <Route
+            path="/profile"
+            element={
+              <>
+                {!user ? (
+                  <Navigate to="/login" replace />
+                ) : (
+                  <Col md={6}>
+                    <ProfileView />
+                  </Col>
+                )}
+              </>
+            }
+          />
+          <Route
             path="/movies/:movieId"
             element={
               <>
@@ -103,17 +118,6 @@ export const MainView = () => {
                         <MovieCard movie={movie} />
                       </Col>
                     ))}
-                      <Button
-                        className="mb-4"
-                        onClick={() => {
-                          setUser(null);
-                          setToken(null);
-                          localStorage.clear();
-                        }}
-                        variant="primary"
-                      >
-                        Logout
-                      </Button>
                   </>
                 )}
               </>
