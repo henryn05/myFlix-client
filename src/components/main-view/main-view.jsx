@@ -30,6 +30,52 @@ export const MainView = () => {
       });
   }, [token]);
 
+  const addFavMovie = (id) => {
+    fetch(`https://henry-nguyen-myflix-02bc4a1c06a2.herokuapp.com/users/${user.Username}/movies/${id}`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    }).then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        alert("Failed to add movie");
+      }
+    }).then((user) => {
+      if (user) {
+        localStorage.setItem("user", JSON.stringify(user));
+        setUser(user);
+        alert("Successfully added movie");
+      }
+    }).catch(error => {
+      console.error(error);
+    });
+  };
+
+  const removeFavMovie = (id) => {
+    fetch(`https://henry-nguyen-myflix-02bc4a1c06a2.herokuapp.com/users/${user.Username}/movies/${id}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    }).then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        alert("Failed to remove movie");
+      }
+    }).then((user) => {
+      if (user) {
+        localStorage.setItem("user", JSON.stringify(user));
+        setUser(user);
+        alert("Successfully removed movie")
+      }
+    }).catch(error => {
+      console.error(error);
+    });
+  };
+
   return (
     <BrowserRouter>
       <NavigationBar
@@ -81,7 +127,11 @@ export const MainView = () => {
                   <Navigate to="/login" replace />
                 ) : (
                   <Col md={6}>
-                    <ProfileView />
+                    <ProfileView
+                      user={user}
+                      setUser={setUser}
+                      movies={movies}
+                    />
                   </Col>
                 )}
               </>
@@ -97,7 +147,11 @@ export const MainView = () => {
                   <Col>Your movie list is empty!</Col>
                 ) : (
                   <Col md={8}>
-                    <MovieView movies={movies} />
+                    <MovieView
+                      movies={movies}
+                      addFavMovie={addFavMovie}
+                      removeFavMovie={removeFavMovie}
+                      />
                   </Col>
                 )}
               </>
@@ -115,7 +169,13 @@ export const MainView = () => {
                   <>
                     {movies.map((movie) => (
                       <Col className="mb-4" key={movie._id} md={3}>
-                        <MovieCard movie={movie} />
+                        <MovieCard
+                          movie={movie}
+                          removeFav={removeFav}
+                          addFav={addFav}
+                          isFavorite={user.FavoriteMovies
+                            .includes(movie._id)}
+                          />
                       </Col>
                     ))}
                   </>
