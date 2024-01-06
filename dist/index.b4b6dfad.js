@@ -36361,7 +36361,6 @@ const MovieView = ({ movies, addFavMovie, removeFavMovie })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
         className: "m-3",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
-            sm: 12,
             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
                 className: "h-100",
                 children: [
@@ -36451,6 +36450,7 @@ const MovieView = ({ movies, addFavMovie, removeFavMovie })=>{
                             }, undefined),
                             user.Favorite_movies.includes(movie._id) ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
                                 className: "mx-3",
+                                variant: "danger",
                                 onClick: ()=>removeFavMovie(movie._id),
                                 children: "Remove from Favorite List"
                             }, void 0, false, {
@@ -36463,7 +36463,7 @@ const MovieView = ({ movies, addFavMovie, removeFavMovie })=>{
                                 children: "Add to Favorite List"
                             }, void 0, false, {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 38,
+                                lineNumber: 39,
                                 columnNumber: 15
                             }, undefined)
                         ]
@@ -36960,7 +36960,7 @@ const ProfileView = ({ user, setUser, movies, addFavMovie, removeFavMovie })=>{
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
-                className: "p-5 mt-5",
+                className: "p-5 my-5",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
                         className: "text-center mb-4",
@@ -37054,6 +37054,7 @@ const ProfileView = ({ user, setUser, movies, addFavMovie, removeFavMovie })=>{
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
+                                className: "justify-content-center",
                                 children: [
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
                                         className: "mt-4",
@@ -37064,7 +37065,7 @@ const ProfileView = ({ user, setUser, movies, addFavMovie, removeFavMovie })=>{
                                     }, void 0, false, {
                                         fileName: "src/components/profile-view/profile-view.jsx",
                                         lineNumber: 130,
-                                        columnNumber: 13
+                                        columnNumber: 15
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
                                         className: "mt-4",
@@ -37074,7 +37075,7 @@ const ProfileView = ({ user, setUser, movies, addFavMovie, removeFavMovie })=>{
                                     }, void 0, false, {
                                         fileName: "src/components/profile-view/profile-view.jsx",
                                         lineNumber: 138,
-                                        columnNumber: 13
+                                        columnNumber: 15
                                     }, undefined)
                                 ]
                             }, void 0, true, {

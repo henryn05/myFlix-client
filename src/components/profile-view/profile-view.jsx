@@ -71,7 +71,7 @@ export const ProfileView = ({ user, setUser, movies, addFavMovie, removeFavMovie
   };
 
   return (
-    <Row >
+    <Row>
       <Card className="p-5 mt-5">
         <h1 className="text-center mb-4">Favorite Movies</h1>
         <Row>
@@ -94,7 +94,7 @@ export const ProfileView = ({ user, setUser, movies, addFavMovie, removeFavMovie
           )}
         </Row>
       </Card>
-      <Card className="p-5 mt-5">
+      <Card className="p-5 my-5">
         <h1 className="text-center mb-4">User Info</h1>
         <Form onSubmit={handleUpdate}>
           <Form.Group controlId="formUsername">
@@ -126,22 +126,22 @@ export const ProfileView = ({ user, setUser, movies, addFavMovie, removeFavMovie
                 required
               />
           </Form.Group>
-          <Row>
-            <Button
-              className="mt-4"
-              variant="primary"
-              type="submit"
-              onClick={handleUpdate}
-            >
-              Save Changes
-            </Button>
-            <Button
-              className="mt-4"
-              variant="danger"
-              onClick={handleDelete}
-            >
-              Delete Account
-            </Button>
+          <Row className="justify-content-center">
+              <Button
+                className="mt-4"
+                variant="primary"
+                type="submit"
+                onClick={handleUpdate}
+              >
+                Save Changes
+              </Button>
+              <Button
+                className="mt-4"
+                variant="danger"
+                onClick={handleDelete}
+              >
+                Delete Account
+              </Button>
           </Row>
         </Form>
       </Card>
