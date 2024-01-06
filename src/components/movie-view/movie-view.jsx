@@ -2,16 +2,19 @@ import { Button, Card, Row, Col } from "react-bootstrap";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 
-export const MovieView = ({ movies }) => {
+export const MovieView = ({ movies, addFavMovie, removeFavMovie }) => {
   const { movieId } = useParams();
   const movie = movies.find((m) => m._id === movieId);
 
   if (!movie) {
-    return <div>Loading...</div>
+    return <div>Movie is loading...</div>
   }
+
+  const user = JSON.parse(localStorage.getItem("user"));
+  console.log(user);
   return (
     <Row className="m-3">
-      <Col sm={12}>
+      <Col>
         <Card className="h-100">
           <Card.Img variant="top" src={movie.Image} />
           <Card.Body>
@@ -22,9 +25,23 @@ export const MovieView = ({ movies }) => {
             <Card.Text>Director: {movie.Director.Name}</Card.Text>
           </Card.Body>
           <div className="text-center m-3">
-            <Link to={`/`}>
-              <Button className="back-button btn-block">Back</Button>
+            <Link to={"/"}>
+              <Button className="back-button">Back</Button>
             </Link>
+            {user.Favorite_movies.includes(movie._id) ? (
+              <Button
+                className="mx-3"
+                variant="danger"
+                onClick={() => removeFavMovie(movie._id)}>
+                  Remove from Favorite List
+              </Button>
+            ) : (
+              <Button
+                className="mx-3"
+                onClick={() => addFavMovie(movie._id)}>
+                Add to Favorite List
+              </Button>
+            )}
           </div>
         </Card>
       </Col>
