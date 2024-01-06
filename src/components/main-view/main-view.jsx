@@ -126,7 +126,7 @@ export const MainView = () => {
                 {!user ? (
                   <Navigate to="/login" replace />
                 ) : (
-                  <Col md={6}>
+                  <Col md={12}>
                     <ProfileView
                       user={user}
                       setUser={setUser}
@@ -146,7 +146,7 @@ export const MainView = () => {
                 ) : movies.length === 0 ? (
                   <Col>Your movie list is empty!</Col>
                 ) : (
-                  <Col md={8}>
+                  <Col md={12}>
                     <MovieView
                       movies={movies}
                       addFavMovie={addFavMovie}
@@ -171,9 +171,9 @@ export const MainView = () => {
                       <Col className="mb-4" key={movie._id} md={3}>
                         <MovieCard
                           movie={movie}
-                          removeFav={removeFav}
-                          addFav={addFav}
-                          isFavorite={user.FavoriteMovies
+                          removeFavMovie={removeFavMovie}
+                          addFavMovie={addFavMovie}
+                          isFavorite={user.Favorite_movies
                             .includes(movie._id)}
                           />
                       </Col>

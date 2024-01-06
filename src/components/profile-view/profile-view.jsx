@@ -1,21 +1,22 @@
 import React, { useState } from "react";
 import { Row, Col, Card, Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { MovieCard } from "../movie-card/movie-card";
 
 export const ProfileView = ({ user, setUser, movies, addFavMovie, removeFavMovie }) => {
   const [username, setUsername] = useState(user.Username);
   const [email, setEmail] = useState(user.Email);
   const [birthday, setBirthday] = useState(user.Birthday);
 
-if (!user) {
-  console.error("User is undefined");
-} else if (!user.FavoriteMovies) {
-  console.error("User's FavoriteMovies is undefined");
-} else if (!Array.isArray(movies)) {
-  console.error("Movies is not an array");
-} else {
-  let favoriteMovies = movies.filter((m) => user.Favorite_movies.includes(m._id));
-}
+  if (!user) {
+    console.error("User is undefined");
+  } else if (!user.FavoriteMovies) {
+    console.error("User's FavoriteMovies is undefined");
+  } else if (!Array.isArray(movies)) {
+    console.error("Movies is not an array");
+  } else {
+    let favoriteMovies = movies.filter((m) => user.Favorite_movies.includes(m._id));
+  }
 
   const token = localStorage.getItem("token");
 
@@ -70,15 +71,15 @@ if (!user) {
   };
 
   return (
-    <Row>
-      <Card>
-        <h2>Favorite Movies:</h2>
+    <Row >
+      <Card className="p-5 mt-5">
+        <h1 className="text-center mb-4">Favorite Movies</h1>
         <Row>
           {user.Favorite_movies && user.Favorite_movies.length > 0 ? (
             user.Favorite_movies.map((movieId) => {
               const movie = movies.find((m) => m._id === movieId);
               return (
-                <Col key={movie._id} md={3}>
+                <Col key={movie._id} md={6} className="mb-4">
                   <MovieCard
                     movie={movie}
                     addFavMovie={addFavMovie}
@@ -89,13 +90,12 @@ if (!user) {
               );
             })
           ) : (
-            <p>No favorite movies yet!</p>
+            <p className="text-center">No favorite movies yet!</p>
           )}
         </Row>
       </Card>
       <Card className="p-5 mt-5">
-      </Card>
-      <Card className="p-5 mt-5">
+        <h1 className="text-center mb-4">User Info</h1>
         <Form onSubmit={handleUpdate}>
           <Form.Group controlId="formUsername">
             <Form.Label>Username:</Form.Label>
