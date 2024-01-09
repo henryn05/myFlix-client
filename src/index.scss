@@ -1,5 +1,40 @@
-$color: steelblue;
+$background-color: #303f62;
+$primary-color: #435585;
+$button-color: #818FB4;
+$text-color: #F5E8C7;
 
-.my-flix {
-  color: $color;
+body {
+  background-color: $background-color;
+  color: $text-color;
 }
+
+button, .btn {
+  background-color: $button-color;
+  border-color: $button-color;
+  color: $text-color;
+  &:hover {
+    background-color: $button-color;
+    border-color: $button-color;
+    color: $text-color;
+  }
+}
+
+.card {
+  background-color: $primary-color;
+  color: $text-color;
+}
+
+.navbar {
+  background-color: $primary-color;
+  color: $text-color;
+  border-radius: 4px;
+
+  a {
+    color: $text-color;
+
+    &:hover {
+      color: $text-color;
+    }
+  }
+}
+

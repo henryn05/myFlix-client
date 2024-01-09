@@ -1,3 +1,11 @@
+body {
+  background-color: #435585;
+}
+
+body {
+  background-color: #435585;
+}
+
 :root, [data-bs-theme="light"] {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -13345,29 +13353,17 @@ textarea.form-control-lg {
 }
 
 body {
-  color: #f5e8c7;
-  background-color: #303f62;
+  background-color: #363062;
 }
 
 button, .btn, button:hover, .btn:hover {
-  color: #f5e8c7;
   background-color: #818fb4;
   border-color: #818fb4;
 }
 
-.card {
-  color: #f5e8c7;
-  background-color: #435585;
-}
-
-.navbar {
-  color: #f5e8c7;
-  background-color: #435585;
-  border-radius: 4px;
-}
-
-.navbar a, .navbar a:hover {
+.MyFlixApp {
+  movie-card-color: #435585;
   color: #f5e8c7;
 }
 
-/*# sourceMappingURL=index.ab0485ab.css.map */
+/*# sourceMappingURL=index.e3f97e84.css.map */
