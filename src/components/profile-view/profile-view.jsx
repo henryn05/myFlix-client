@@ -129,7 +129,6 @@ export const ProfileView = ({ user, setUser, movies, addFavMovie, removeFavMovie
           <Row className="justify-content-center">
               <Button
                 className="mt-4"
-                variant="primary"
                 type="submit"
                 onClick={handleUpdate}
               >
@@ -137,7 +136,6 @@ export const ProfileView = ({ user, setUser, movies, addFavMovie, removeFavMovie
               </Button>
               <Button
                 className="mt-4"
-                variant="danger"
                 onClick={handleDelete}
               >
                 Delete Account
