@@ -19,6 +19,15 @@ button, .btn {
   }
 }
 
+input {
+  background-color: $text-color;
+}
+
+.profile-view .card {
+  background-color: $text-color;
+  color: $primary-color;
+}
+
 .card {
   background-color: $primary-color;
   color: $text-color;
@@ -32,9 +41,24 @@ button, .btn {
   a {
     color: $text-color;
 
-    &:hover {
+    &:hover, &:visited, &:active {
       color: $text-color;
     }
+
   }
 }
 
+.navbar-toggler {
+  border: none;
+  background-color: $text-color;
+  padding: 8px;
+  outline: none;
+
+  &:focus, &:hover {
+    background-color: $text-color;
+  }
+}
+
+.navbar-toggler-icon {
+  background-color: $text-color;
+}

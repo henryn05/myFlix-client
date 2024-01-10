@@ -8,16 +8,6 @@ export const ProfileView = ({ user, setUser, movies, addFavMovie, removeFavMovie
   const [email, setEmail] = useState(user.Email);
   const [birthday, setBirthday] = useState(user.Birthday);
 
-  if (!user) {
-    console.error("User is undefined");
-  } else if (!user.FavoriteMovies) {
-    console.error("User's FavoriteMovies is undefined");
-  } else if (!Array.isArray(movies)) {
-    console.error("Movies is not an array");
-  } else {
-    let favoriteMovies = movies.filter((m) => user.Favorite_movies.includes(m._id));
-  }
-
   const token = localStorage.getItem("token");
 
   //Update user info
@@ -79,7 +69,7 @@ export const ProfileView = ({ user, setUser, movies, addFavMovie, removeFavMovie
             user.Favorite_movies.map((movieId) => {
               const movie = movies.find((m) => m._id === movieId);
               return (
-                <Col key={movie._id} md={6} className="mb-4">
+                <Col key={movie._id} md={6} className="mb-4 profile-view">
                   <MovieCard
                     movie={movie}
                     addFavMovie={addFavMovie}
