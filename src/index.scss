@@ -62,3 +62,16 @@ input {
 .navbar-toggler-icon {
   background-color: $text-color;
 }
+
+.Title {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.ReleaseYear {
+  font-style: italic;
+}
+
+.Genre, .Director {
+  text-decoration: underline;
+}

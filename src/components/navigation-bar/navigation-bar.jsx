@@ -1,4 +1,4 @@
-import { Navbar, Container, Nav } from "react-bootstrap";
+import { Navbar, Container, Nav, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export const NavigationBar = ({ user, onLoggedOut }) => {
@@ -8,7 +8,12 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
         <Navbar.Brand as={Link} to="/">
           myFlix
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <OverlayTrigger
+          placement="bottom"
+          overlay={<Tooltip id="menu-tooltip">Toggle Menu</Tooltip>}
+        >
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        </OverlayTrigger>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             {!user && (

@@ -13390,4 +13390,17 @@ input {
   background-color: #f5e8c7;
 }
 
+.Title {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.ReleaseYear {
+  font-style: italic;
+}
+
+.Genre, .Director {
+  text-decoration: underline;
+}
+
 /*# sourceMappingURL=index.ab0485ab.css.map */
