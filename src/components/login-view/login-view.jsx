@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button, Form, Card, Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export const LoginView = ({onLoggedIn}) => {
   const [username, setUsername] = useState("");
@@ -60,8 +61,9 @@ export const LoginView = ({onLoggedIn}) => {
             maxLength="25"
           />
         </Form.Group>
-        <Row>
+        <Row className="d-flex text-center">
           <Button className="mt-4" type="submit"> Login</Button>
+          <Link to="/signup" className="mt-4">New User? Create an Account!</Link>
         </Row>
       </Form>
     </Card>

@@ -28,7 +28,7 @@ export const MovieView = ({ movies, addFavMovie, removeFavMovie }) => {
         </Card>
       </Col>
       <Col className="d-flex">
-        <Card className="flex-grow-1">
+        <Card className="flex-grow-1 d-flex flex-column">
           <div className="w-100">
             <Card.Body>
               <Card.Text>Description: <span className="Description"> {movie.Description}</span></Card.Text>
@@ -36,14 +36,13 @@ export const MovieView = ({ movies, addFavMovie, removeFavMovie }) => {
               <Card.Text>Genre: <span className="Genre"> {movie.Genre.Name}</span></Card.Text>
               <Card.Text>Director: <span className="Director"> {movie.Director.Name}</span></Card.Text>
             </Card.Body>
-            <div className="text-center">
-              <div className="empty-space"></div>
+            <div className="mt-5 text-center">
               <Link to={"/"}>
                 <OverlayTrigger
                   placement="top"
                   overlay={<Tooltip id="tooltip">Go Back</Tooltip>}
                 >
-                  <Button className="back-button mx-3">
+                  <Button className="mx-3">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
                       <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
                     </svg>
@@ -55,7 +54,7 @@ export const MovieView = ({ movies, addFavMovie, removeFavMovie }) => {
                     placement="top"
                     overlay={<Tooltip id="tooltip">Remove from Your Favorite List</Tooltip>}
                   >
-                    <Button className="m-4" onClick={() => removeFavMovie(movie._id)}>
+                    <Button className=" mx-3" onClick={() => removeFavMovie(movie._id)}>
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
                         <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
                       </svg>
@@ -63,7 +62,7 @@ export const MovieView = ({ movies, addFavMovie, removeFavMovie }) => {
                   </OverlayTrigger>
                 ) : (
                   <OverlayTrigger
-                    placement="bottom"
+                    placement="top"
                     overlay={<Tooltip id="tooltip">Add to Your Favorite List</Tooltip>}
                   >
                     <Button className="m-4" onClick={() => addFavMovie(movie._id)}>
@@ -73,8 +72,8 @@ export const MovieView = ({ movies, addFavMovie, removeFavMovie }) => {
                     </Button>
                   </OverlayTrigger>
                 )}
+              </div>
             </div>
-          </div>
         </Card>
       </Col>
     </Row>

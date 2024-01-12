@@ -23,6 +23,10 @@ input {
   background-color: $text-color;
 }
 
+a {
+  color: $text-color
+}
+
 .profile-view .card {
   background-color: $text-color;
   color: $primary-color;

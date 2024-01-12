@@ -1,5 +1,7 @@
 import{ useState } from "react";
 import { Button, Form, Card, Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
 export const SignupView = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -75,8 +77,9 @@ export const SignupView = () => {
               required
             />
         </Form.Group>
-        <Row>
+        <Row className="text-center">
           <Button className="mt-4" type="submit"> Signup</Button>
+          <Link to="/login" className="mt-4">Have an Account? Login!</Link>
         </Row>
       </Form>
     </Card>
