@@ -27,16 +27,15 @@ export const MovieView = ({ movies, addFavMovie, removeFavMovie }) => {
           </Card.Body>
         </Card>
       </Col>
-      <Col className="d-flex">
-        <Card className="flex-grow-1 d-flex flex-column">
-          <div className="w-100">
+      <Col className="d-flex flex-column">
+        <Card className="flex-grow-1">
             <Card.Body>
               <Card.Text>Description: <span className="Description"> {movie.Description}</span></Card.Text>
               <Card.Text>Release Year: <span className="ReleaseYear"> {movie.ReleaseYear}</span></Card.Text>
               <Card.Text>Genre: <span className="Genre"> {movie.Genre.Name}</span></Card.Text>
               <Card.Text>Director: <span className="Director"> {movie.Director.Name}</span></Card.Text>
             </Card.Body>
-            <div className="mt-5 text-center">
+            <div className="mb-4 text-center">
               <Link to={"/"}>
                 <OverlayTrigger
                   placement="top"
@@ -72,7 +71,6 @@ export const MovieView = ({ movies, addFavMovie, removeFavMovie }) => {
                     </Button>
                   </OverlayTrigger>
                 )}
-              </div>
             </div>
         </Card>
       </Col>
