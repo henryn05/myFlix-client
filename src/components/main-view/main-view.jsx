@@ -12,10 +12,14 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const storedToken = localStorage.getItem("token");
+
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
   const [movies, setMovies] = useState ([]);
-  const [selectedMovie, setSelectedMovie] = useState(null);
+
+  const [filteredMovies, setFilteredMovies] = useState([]);
+  const [searchInput, setSearchInput] = useState(null);
+  const [genreSelect, setGenreSelect] = useState(null);
 
 
   useEffect(() => {
@@ -27,8 +31,24 @@ export const MainView = () => {
       .then((response) => response.json())
       .then((movies) => {
         setMovies(movies);
+
+        const filteredMovies = applyFilters(movies);
+        setFilteredMovies(filteredMovies);
+      })
+      .catch((error) => {
+        console.error("Error fetching movies:", error);
       });
-  }, [token]);
+  }, [token, genreSelect, searchInput]);
+
+  const applyFilters = (movies) => {
+    return movies.filter((movie) => {
+      const matchesGenre = genreSelect ? movie.Genre.Name === genreSelect : true;
+      const matchesSearch = searchInput
+        ? movie.Title.toLowerCase().includes(searchInput.toLowerCase())
+        : true;
+      return matchesGenre && matchesSearch;
+    });
+  };
 
   const addFavMovie = (id) => {
     fetch(`https://henry-nguyen-myflix-02bc4a1c06a2.herokuapp.com/users/${user.Username}/movies/${id}`, {
@@ -76,13 +96,28 @@ export const MainView = () => {
     });
   };
 
+  const handleSearchInput = (e) => {
+    setSearchInput(e.target.value);
+    console.log(e.target.value);
+  };
+
+  const handleGenreSelect = (e) => {
+    setGenreSelect(e.target.value);
+    console.log(e.target.value);
+  };
+
   return (
     <BrowserRouter>
       <NavigationBar
+        movies={movies}
         user={user}
         onLoggedOut={() => {
           setUser(null);
         }}
+        handleSearchInput={handleSearchInput}
+        handleGenreSelect={handleGenreSelect}
+        searchInput={searchInput}
+        genreSelect={genreSelect}
       />
       <Row className="d-flex justify-content-center">
         <Routes>

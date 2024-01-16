@@ -1,13 +1,33 @@
+import { useState, useEffect } from "react";
 import { Navbar, Container, Nav, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-export const NavigationBar = ({ user, onLoggedOut }) => {
+export const NavigationBar = ({ user, onLoggedOut, handleSearchInput, handleGenreSelect, searchInput, genreSelect }) => {
+
   return (
     <Navbar className="my-4" expand="lg">
       <Container>
         <Navbar.Brand as={Link} to="/">
           myFlix
         </Navbar.Brand>
+        { user && window.location.pathname === "/" && (
+          <>
+            <input
+              type="text"
+              placeholder="Search"
+              value={searchInput}
+              onChange={handleSearchInput}
+            />
+            <select value={genreSelect} onChange={handleGenreSelect}>
+              <option value="">All Genres</option>
+              <option value="Adventure">Adventure</option>
+              <option value="Sci-Fi">Sci-Fi</option>
+              <option value="Action">Action</option>
+              <option value="Drama">Drama</option>
+              <option value="Crime">Crime</option>
+            </select>
+          </>
+        )}
         <OverlayTrigger
           placement="bottom"
           overlay={<Tooltip id="menu-tooltip">Toggle Menu</Tooltip>}

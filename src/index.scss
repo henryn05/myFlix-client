@@ -19,8 +19,10 @@ button, .btn {
   }
 }
 
-input {
+input, select {
   background-color: $text-color;
+  padding: 6px;
+  border-radius: 6px;
 }
 
 a {

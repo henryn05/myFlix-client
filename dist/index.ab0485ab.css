@@ -13355,8 +13355,10 @@ button, .btn, button:hover, .btn:hover {
   border-color: #818fb4;
 }
 
-input {
+input, select {
   background-color: #f5e8c7;
+  border-radius: 6px;
+  padding: 6px;
 }
 
 a {
