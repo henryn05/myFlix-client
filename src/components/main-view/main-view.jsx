@@ -17,10 +17,8 @@ export const MainView = () => {
   const [token, setToken] = useState(null);
   const [movies, setMovies] = useState ([]);
 
-  const [filteredMovies, setFilteredMovies] = useState([]);
-  const [searchInput, setSearchInput] = useState(null);
-  const [genreSelect, setGenreSelect] = useState(null);
-
+  const [searchInput, setSearchInput] = useState("");
+  const [genreSelect, setGenreSelect] = useState("");
 
   useEffect(() => {
     if (!token) return;
@@ -30,24 +28,25 @@ export const MainView = () => {
     })
       .then((response) => response.json())
       .then((movies) => {
-        setMovies(movies);
-
-        const filteredMovies = applyFilters(movies);
-        setFilteredMovies(filteredMovies);
+        const filteredMovies = filterMovies(movies);
+        setMovies(filteredMovies);
       })
       .catch((error) => {
         console.error("Error fetching movies:", error);
       });
   }, [token, genreSelect, searchInput]);
 
-  const applyFilters = (movies) => {
-    return movies.filter((movie) => {
-      const matchesGenre = genreSelect ? movie.Genre.Name === genreSelect : true;
-      const matchesSearch = searchInput
-        ? movie.Title.toLowerCase().includes(searchInput.toLowerCase())
-        : true;
-      return matchesGenre && matchesSearch;
-    });
+  const filterMovies = (movies) => {
+    return movies.reduce((filtered, movie) => {
+      const matchesGenre = !genreSelect || movie.Genre.Name.toLowerCase() === genreSelect.toLowerCase();
+      const matchesSearch = !searchInput || movie.Title.toLowerCase().includes(searchInput.toLowerCase());
+
+      if (matchesGenre && matchesSearch) {
+        filtered.push(movie);
+      }
+
+      return filtered;
+    }, []);
   };
 
   const addFavMovie = (id) => {
@@ -98,12 +97,10 @@ export const MainView = () => {
 
   const handleSearchInput = (e) => {
     setSearchInput(e.target.value);
-    console.log(e.target.value);
   };
 
   const handleGenreSelect = (e) => {
     setGenreSelect(e.target.value);
-    console.log(e.target.value);
   };
 
   return (

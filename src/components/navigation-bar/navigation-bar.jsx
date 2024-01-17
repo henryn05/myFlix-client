@@ -21,7 +21,7 @@ export const NavigationBar = ({ user, onLoggedOut, handleSearchInput, handleGenr
             <select value={genreSelect} onChange={handleGenreSelect}>
               <option value="">All Genres</option>
               <option value="Adventure">Adventure</option>
-              <option value="Sci-Fi">Sci-Fi</option>
+              <option value="Science Fiction">Sci-Fi</option>
               <option value="Action">Action</option>
               <option value="Drama">Drama</option>
               <option value="Crime">Crime</option>

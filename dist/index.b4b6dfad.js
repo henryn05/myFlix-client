@@ -27195,9 +27195,8 @@ const MainView = ()=>{
     const [user, setUser] = (0, _react.useState)(null);
     const [token, setToken] = (0, _react.useState)(null);
     const [movies, setMovies] = (0, _react.useState)([]);
-    const [filteredMovies, setFilteredMovies] = (0, _react.useState)([]);
-    const [searchInput, setSearchInput] = (0, _react.useState)(null);
-    const [genreSelect, setGenreSelect] = (0, _react.useState)(null);
+    const [searchInput, setSearchInput] = (0, _react.useState)("");
+    const [genreSelect, setGenreSelect] = (0, _react.useState)("");
     (0, _react.useEffect)(()=>{
         if (!token) return;
         fetch("https://henry-nguyen-myflix-02bc4a1c06a2.herokuapp.com/movies", {
@@ -27205,9 +27204,8 @@ const MainView = ()=>{
                 Authorization: `Bearer ${token}`
             }
         }).then((response)=>response.json()).then((movies)=>{
-            setMovies(movies);
-            const filteredMovies = applyFilters(movies);
-            setFilteredMovies(filteredMovies);
+            const filteredMovies = filterMovies(movies);
+            setMovies(filteredMovies);
         }).catch((error)=>{
             console.error("Error fetching movies:", error);
         });
@@ -27216,12 +27214,13 @@ const MainView = ()=>{
         genreSelect,
         searchInput
     ]);
-    const applyFilters = (movies)=>{
-        return movies.filter((movie)=>{
-            const matchesGenre = genreSelect ? movie.Genre.Name === genreSelect : true;
-            const matchesSearch = searchInput ? movie.Title.toLowerCase().includes(searchInput.toLowerCase()) : true;
-            return matchesGenre && matchesSearch;
-        });
+    const filterMovies = (movies)=>{
+        return movies.reduce((filtered, movie)=>{
+            const matchesGenre = !genreSelect || movie.Genre.Name.toLowerCase() === genreSelect.toLowerCase();
+            const matchesSearch = !searchInput || movie.Title.toLowerCase().includes(searchInput.toLowerCase());
+            if (matchesGenre && matchesSearch) filtered.push(movie);
+            return filtered;
+        }, []);
     };
     const addFavMovie = (id)=>{
         fetch(`https://henry-nguyen-myflix-02bc4a1c06a2.herokuapp.com/users/${user.Username}/movies/${id}`, {
@@ -27263,11 +27262,9 @@ const MainView = ()=>{
     };
     const handleSearchInput = (e)=>{
         setSearchInput(e.target.value);
-        console.log(e.target.value);
     };
     const handleGenreSelect = (e)=>{
         setGenreSelect(e.target.value);
-        console.log(e.target.value);
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.BrowserRouter), {
         children: [
@@ -27283,7 +27280,7 @@ const MainView = ()=>{
                 genreSelect: genreSelect
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 111,
+                lineNumber: 108,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
@@ -27302,7 +27299,7 @@ const MainView = ()=>{
                             }, void 0, false)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 124,
+                            lineNumber: 121,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27322,7 +27319,7 @@ const MainView = ()=>{
                             }, void 0, false)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 138,
+                            lineNumber: 135,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27342,7 +27339,7 @@ const MainView = ()=>{
                             }, void 0, false)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 157,
+                            lineNumber: 154,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27364,7 +27361,7 @@ const MainView = ()=>{
                             }, void 0, false)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 175,
+                            lineNumber: 172,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27390,28 +27387,28 @@ const MainView = ()=>{
                             }, void 0, false)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 195,
+                            lineNumber: 192,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 123,
+                    lineNumber: 120,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 122,
+                lineNumber: 119,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 110,
+        lineNumber: 107,
         columnNumber: 5
     }, undefined);
 };
-_s(MainView, "XHt08EhHF/71lugfwTsFQBpDoCk=");
+_s(MainView, "2T8S+ypZQ9x1olh6I8E6Pb/Jfng=");
 _c = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");
@@ -40369,7 +40366,7 @@ const NavigationBar = ({ user, onLoggedOut, handleSearchInput, handleGenreSelect
                                     columnNumber: 15
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
-                                    value: "Sci-Fi",
+                                    value: "Science Fiction",
                                     children: "Sci-Fi"
                                 }, void 0, false, {
                                     fileName: "src/components/navigation-bar/navigation-bar.jsx",
@@ -40515,6 +40512,6 @@ $RefreshReg$(_c, "NavigationBar");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-bootstrap":"3AD9A","react-router-dom":"fdOAw","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq"}],"i5LP7":[function() {},{}],"lJZlQ":[function() {},{}]},["d8m58","1xC6H","d8Dch"], "d8Dch", "parcelRequireaec4")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","react-router-dom":"fdOAw","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"i5LP7":[function() {},{}],"lJZlQ":[function() {},{}]},["d8m58","1xC6H","d8Dch"], "d8Dch", "parcelRequireaec4")
 
 //# sourceMappingURL=index.b4b6dfad.js.map
