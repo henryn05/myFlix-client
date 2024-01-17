@@ -40367,7 +40367,7 @@ const NavigationBar = ({ user, onLoggedOut, handleSearchInput, handleGenreSelect
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
                                     value: "Science Fiction",
-                                    children: "Sci-Fi"
+                                    children: "Science Fiction"
                                 }, void 0, false, {
                                     fileName: "src/components/navigation-bar/navigation-bar.jsx",
                                     lineNumber: 24,

@@ -70,8 +70,9 @@ a {
 }
 
 .Title {
+  font-family: Cambria, serif;
   font-weight: 600;
-  text-decoration: underline;
+  font-size: 22px;
 }
 
 .ReleaseYear {
@@ -79,5 +80,6 @@ a {
 }
 
 .Genre, .Director {
-  text-decoration: underline;
+  font-family: Cambria, serif;
+  font-weight: 600;
 }

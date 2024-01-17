@@ -13397,8 +13397,9 @@ a {
 }
 
 .Title {
+  font-family: Cambria, serif;
+  font-size: 22px;
   font-weight: 600;
-  text-decoration: underline;
 }
 
 .ReleaseYear {
@@ -13406,7 +13407,8 @@ a {
 }
 
 .Genre, .Director {
-  text-decoration: underline;
+  font-family: Cambria, serif;
+  font-weight: 600;
 }
 
 /*# sourceMappingURL=index.ab0485ab.css.map */
