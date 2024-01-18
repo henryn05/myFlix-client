@@ -20,7 +20,7 @@ export const ProfileView = ({ user, setUser, movies, addFavMovie, removeFavMovie
       Birthday: birthday
     };
 
-    fetch(`https://henry-nguyen-myflix-02bc4a1c06a2.herokuapp.com/users/${user.Username}`, {
+    fetch(`https://myflix-hn05.onrender.com/users/${user.Username}`, {
       method: "PUT",
       body: JSON.stringify(data),
       headers: {
@@ -43,7 +43,7 @@ export const ProfileView = ({ user, setUser, movies, addFavMovie, removeFavMovie
 
   //Delete user info
   const handleDelete = () => {
-    fetch(`https://henry-nguyen-myflix-02bc4a1c06a2.herokuapp.com/users/${user.Username}`, {
+    fetch(`https://myflix-hn05.onrender.com/users/${user.Username}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`

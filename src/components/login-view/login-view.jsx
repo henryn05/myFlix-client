@@ -14,7 +14,7 @@ export const LoginView = ({onLoggedIn}) => {
       Password: password
     };
 
-    fetch("https://henry-nguyen-myflix-02bc4a1c06a2.herokuapp.com/login", {
+    fetch("https://https://myflix-hn05.onrender.com/login", {
       method: "POST",
       headers: {
         "Content-Type":"application/json"
@@ -32,7 +32,7 @@ export const LoginView = ({onLoggedIn}) => {
         }
       })
       .catch((e) => {
-        alert("Something went wrong");
+        alert("Error occured");
       });
   };
 

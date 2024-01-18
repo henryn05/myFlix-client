@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export const NavigationBar = ({ user, onLoggedOut, handleSearchInput, handleGenreSelect, searchInput, genreSelect }) => {
 
   return (
-    <Navbar className="my-4" expand="lg">
+    <Navbar className="my-4">
       <Container>
         <Navbar.Brand as={Link} to="/">
           myFlix
