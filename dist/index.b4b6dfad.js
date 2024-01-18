@@ -27199,7 +27199,7 @@ const MainView = ()=>{
     const [genreSelect, setGenreSelect] = (0, _react.useState)("");
     (0, _react.useEffect)(()=>{
         if (!token) return;
-        fetch("https://henry-nguyen-myflix-02bc4a1c06a2.herokuapp.com/movies", {
+        fetch("https://myflix-hn05.onrender.com/movies", {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -27223,7 +27223,7 @@ const MainView = ()=>{
         }, []);
     };
     const addFavMovie = (id)=>{
-        fetch(`https://henry-nguyen-myflix-02bc4a1c06a2.herokuapp.com/users/${user.Username}/movies/${id}`, {
+        fetch(`https://myflix-hn05.onrender.com/users/${user.Username}/movies/${id}`, {
             method: "POST",
             headers: {
                 Authorization: `Bearer ${token}`
@@ -27242,23 +27242,29 @@ const MainView = ()=>{
         });
     };
     const removeFavMovie = (id)=>{
-        fetch(`https://henry-nguyen-myflix-02bc4a1c06a2.herokuapp.com/users/${user.Username}/movies/${id}`, {
+        fetch(
+          `https://myflix-hn05.onrender.com/users/${user.Username}/movies/${id}`,
+          {
             method: "DELETE",
             headers: {
-                Authorization: `Bearer ${token}`
-            }
-        }).then((response)=>{
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
+          .then((response) => {
             if (response.ok) return response.json();
             else alert("Failed to remove movie");
-        }).then((user)=>{
+          })
+          .then((user) => {
             if (user) {
-                localStorage.setItem("user", JSON.stringify(user));
-                setUser(user);
-                alert("Successfully removed movie");
+              localStorage.setItem("user", JSON.stringify(user));
+              setUser(user);
+              alert("Successfully removed movie");
             }
-        }).catch((error)=>{
+          })
+          .catch((error) => {
             console.error(error);
-        });
+          });
     };
     const handleSearchInput = (e)=>{
         setSearchInput(e.target.value);
@@ -39704,7 +39710,7 @@ const LoginView = ({ onLoggedIn })=>{
             Username: username,
             Password: password
         };
-        fetch("https://henry-nguyen-myflix-02bc4a1c06a2.herokuapp.com/login", {
+        fetch("https://myflix-hn05.onrender.com/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -39859,7 +39865,7 @@ const SignupView = ()=>{
             Email: email,
             Birthday: birthday
         };
-        fetch("https://henry-nguyen-myflix-02bc4a1c06a2.herokuapp.com/users", {
+        fetch("https://myflix-hn05.onrender.com/users", {
             method: "POST",
             body: JSON.stringify(data),
             headers: {
@@ -40066,7 +40072,7 @@ const ProfileView = ({ user, setUser, movies, addFavMovie, removeFavMovie })=>{
             Email: email,
             Birthday: birthday
         };
-        fetch(`https://henry-nguyen-myflix-02bc4a1c06a2.herokuapp.com/users/${user.Username}`, {
+        fetch(`https://myflix-hn05.onrender.com/users/${user.Username}`, {
             method: "PUT",
             body: JSON.stringify(data),
             headers: {
@@ -40086,7 +40092,7 @@ const ProfileView = ({ user, setUser, movies, addFavMovie, removeFavMovie })=>{
     };
     //Delete user info
     const handleDelete = ()=>{
-        fetch(`https://henry-nguyen-myflix-02bc4a1c06a2.herokuapp.com/users/${user.Username}`, {
+        fetch(`https://myflix-hn05.onrender.com/users/${user.Username}`, {
             method: "DELETE",
             headers: {
                 Authorization: `Bearer ${token}`
