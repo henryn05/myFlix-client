@@ -27242,29 +27242,23 @@ const MainView = ()=>{
         });
     };
     const removeFavMovie = (id)=>{
-        fetch(
-          `https://myflix-hn05.onrender.com/users/${user.Username}/movies/${id}`,
-          {
+        fetch(`https://myflix-hn05.onrender.com/users/${user.Username}/movies/${id}`, {
             method: "DELETE",
             headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        )
-          .then((response) => {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((response)=>{
             if (response.ok) return response.json();
             else alert("Failed to remove movie");
-          })
-          .then((user) => {
+        }).then((user)=>{
             if (user) {
-              localStorage.setItem("user", JSON.stringify(user));
-              setUser(user);
-              alert("Successfully removed movie");
+                localStorage.setItem("user", JSON.stringify(user));
+                setUser(user);
+                alert("Successfully removed movie");
             }
-          })
-          .catch((error) => {
+        }).catch((error)=>{
             console.error(error);
-          });
+        });
     };
     const handleSearchInput = (e)=>{
         setSearchInput(e.target.value);
