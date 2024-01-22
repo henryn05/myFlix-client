@@ -23,7 +23,7 @@ export const MainView = () => {
   useEffect(() => {
     if (!token) return;
 
-    fetch("https://myflix-hn05.onrender.com/movies", {
+    fetch("https://myflix-api-hn05.onrender.com/movies", {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((response) => response.json())
@@ -50,7 +50,7 @@ export const MainView = () => {
   };
 
   const addFavMovie = (id) => {
-    fetch(`https://myflix-hn05.onrender.com/users/${user.Username}/movies/${id}`, {
+    fetch(`https://myflix-api-hn05.onrender.com/users/${user.Username}/movies/${id}`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`
@@ -73,7 +73,7 @@ export const MainView = () => {
   };
 
   const removeFavMovie = (id) => {
-    fetch(`https://myflix-hn05.onrender.com/users/${user.Username}/movies/${id}`, {
+    fetch(`https://myflix-api-hn05.onrender.com/users/${user.Username}/movies/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`
