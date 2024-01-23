@@ -62,7 +62,7 @@ export const LoginView = ({onLoggedIn}) => {
           />
         </Form.Group>
         <Row className="d-flex text-center">
-          <Button className="mt-4" type="submit"> Login</Button>
+          <Button className="mt-5" type="submit"> Login</Button>
           <Link to="/signup" className="mt-4">New User? Create an Account!</Link>
         </Row>
       </Form>
