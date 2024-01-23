@@ -40277,11 +40277,13 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "NavigationBar", ()=>NavigationBar);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactBootstrap = require("react-bootstrap");
 var _reactRouterDom = require("react-router-dom");
 const NavigationBar = ({ user, onLoggedOut, handleSearchInput, handleGenreSelect, searchInput, genreSelect })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Navbar), {
         className: "my-4",
+        expand: "sm",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Container), {
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Navbar).Brand, {
@@ -40299,69 +40301,71 @@ const NavigationBar = ({ user, onLoggedOut, handleSearchInput, handleGenreSelect
                             type: "text",
                             placeholder: "Search",
                             value: searchInput,
-                            onChange: handleSearchInput
+                            onChange: handleSearchInput,
+                            className: "mx-2"
                         }, void 0, false, {
                             fileName: "src/components/navigation-bar/navigation-bar.jsx",
                             lineNumber: 15,
-                            columnNumber: 13
+                            columnNumber: 15
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
                             value: genreSelect,
                             onChange: handleGenreSelect,
+                            className: "mx-2",
                             children: [
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
                                     value: "",
                                     children: "All Genres"
                                 }, void 0, false, {
                                     fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                    lineNumber: 22,
-                                    columnNumber: 15
+                                    lineNumber: 27,
+                                    columnNumber: 17
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
                                     value: "Adventure",
                                     children: "Adventure"
                                 }, void 0, false, {
                                     fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                    lineNumber: 23,
-                                    columnNumber: 15
+                                    lineNumber: 28,
+                                    columnNumber: 17
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
                                     value: "Science Fiction",
                                     children: "Science Fiction"
                                 }, void 0, false, {
                                     fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                    lineNumber: 24,
-                                    columnNumber: 15
+                                    lineNumber: 29,
+                                    columnNumber: 17
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
                                     value: "Action",
                                     children: "Action"
                                 }, void 0, false, {
                                     fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                    lineNumber: 25,
-                                    columnNumber: 15
+                                    lineNumber: 30,
+                                    columnNumber: 17
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
                                     value: "Drama",
                                     children: "Drama"
                                 }, void 0, false, {
                                     fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                    lineNumber: 26,
-                                    columnNumber: 15
+                                    lineNumber: 31,
+                                    columnNumber: 17
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
                                     value: "Crime",
                                     children: "Crime"
                                 }, void 0, false, {
                                     fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                    lineNumber: 27,
-                                    columnNumber: 15
+                                    lineNumber: 32,
+                                    columnNumber: 17
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                            lineNumber: 21,
-                            columnNumber: 13
+                            lineNumber: 22,
+                            columnNumber: 15
                         }, undefined)
                     ]
                 }, void 0, true),
@@ -40375,18 +40379,18 @@ const NavigationBar = ({ user, onLoggedOut, handleSearchInput, handleGenreSelect
                         "aria-controls": "basic-navbar-nav"
                     }, void 0, false, {
                         fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                        lineNumber: 35,
+                        lineNumber: 40,
                         columnNumber: 11
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                    lineNumber: 31,
+                    lineNumber: 36,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Navbar).Collapse, {
                     id: "basic-navbar-nav",
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav), {
-                        className: "me-auto",
+                        className: "ms-auto",
                         children: [
                             !user && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
                                 children: [
@@ -40396,7 +40400,7 @@ const NavigationBar = ({ user, onLoggedOut, handleSearchInput, handleGenreSelect
                                         children: "Login"
                                     }, void 0, false, {
                                         fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                        lineNumber: 41,
+                                        lineNumber: 46,
                                         columnNumber: 17
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
@@ -40405,7 +40409,7 @@ const NavigationBar = ({ user, onLoggedOut, handleSearchInput, handleGenreSelect
                                         children: "Signup"
                                     }, void 0, false, {
                                         fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                        lineNumber: 44,
+                                        lineNumber: 49,
                                         columnNumber: 17
                                     }, undefined)
                                 ]
@@ -40418,7 +40422,7 @@ const NavigationBar = ({ user, onLoggedOut, handleSearchInput, handleGenreSelect
                                         children: "Home"
                                     }, void 0, false, {
                                         fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                        lineNumber: 51,
+                                        lineNumber: 56,
                                         columnNumber: 17
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
@@ -40427,7 +40431,7 @@ const NavigationBar = ({ user, onLoggedOut, handleSearchInput, handleGenreSelect
                                         children: "Profile"
                                     }, void 0, false, {
                                         fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                        lineNumber: 54,
+                                        lineNumber: 59,
                                         columnNumber: 17
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
@@ -40435,7 +40439,7 @@ const NavigationBar = ({ user, onLoggedOut, handleSearchInput, handleGenreSelect
                                         children: "Logout"
                                     }, void 0, false, {
                                         fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                        lineNumber: 57,
+                                        lineNumber: 62,
                                         columnNumber: 17
                                     }, undefined)
                                 ]
@@ -40443,12 +40447,12 @@ const NavigationBar = ({ user, onLoggedOut, handleSearchInput, handleGenreSelect
                         ]
                     }, void 0, true, {
                         fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                        lineNumber: 38,
+                        lineNumber: 43,
                         columnNumber: 11
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                    lineNumber: 37,
+                    lineNumber: 42,
                     columnNumber: 9
                 }, undefined)
             ]

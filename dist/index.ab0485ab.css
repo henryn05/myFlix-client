@@ -13349,14 +13349,16 @@ body {
   background-color: #303f62;
 }
 
-button, .btn, button:hover, .btn:hover {
+button, .btn, button:hover, button:active, button:focus, .btn:hover, .btn:active, .btn:focus {
   color: #f5e8c7;
   background-color: #818fb4;
   border-color: #818fb4;
 }
 
 input, select {
+  box-shadow: none;
   background-color: #f5e8c7;
+  border: 1px solid #818fb4;
   border-radius: 6px;
   padding: 6px;
 }

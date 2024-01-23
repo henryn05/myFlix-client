@@ -1,41 +1,46 @@
-import { useState, useEffect } from "react";
+import React from "react";
 import { Navbar, Container, Nav, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export const NavigationBar = ({ user, onLoggedOut, handleSearchInput, handleGenreSelect, searchInput, genreSelect }) => {
 
   return (
-    <Navbar className="my-4">
+    <Navbar className="my-4" expand="sm">
       <Container>
         <Navbar.Brand as={Link} to="/">
           myFlix
         </Navbar.Brand>
-        { user && window.location.pathname === "/" && (
-          <>
-            <input
-              type="text"
-              placeholder="Search"
-              value={searchInput}
-              onChange={handleSearchInput}
-            />
-            <select value={genreSelect} onChange={handleGenreSelect}>
-              <option value="">All Genres</option>
-              <option value="Adventure">Adventure</option>
-              <option value="Science Fiction">Science Fiction</option>
-              <option value="Action">Action</option>
-              <option value="Drama">Drama</option>
-              <option value="Crime">Crime</option>
-            </select>
-          </>
-        )}
+          {user && window.location.pathname === "/" && (
+            <>
+              <input
+                type="text"
+                placeholder="Search"
+                value={searchInput}
+                onChange={handleSearchInput}
+                className="mx-2"
+              />
+              <select
+                value={genreSelect}
+                onChange={handleGenreSelect}
+                className="mx-2"
+              >
+                <option value="">All Genres</option>
+                <option value="Adventure">Adventure</option>
+                <option value="Science Fiction">Science Fiction</option>
+                <option value="Action">Action</option>
+                <option value="Drama">Drama</option>
+                <option value="Crime">Crime</option>
+              </select>
+            </>
+          )}
         <OverlayTrigger
           placement="bottom"
           overlay={<Tooltip id="menu-tooltip">Toggle Menu</Tooltip>}
         >
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Toggle aria-controls="basic-navbar-nav"/>
         </OverlayTrigger>
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+          <Nav className="ms-auto">
             {!user && (
               <>
                 <Nav.Link as={Link} to="/login">
@@ -63,5 +68,5 @@ export const NavigationBar = ({ user, onLoggedOut, handleSearchInput, handleGenr
         </Navbar.Collapse>
       </Container>
     </Navbar>
-  )
-}
+  );
+};
