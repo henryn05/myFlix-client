@@ -38,7 +38,6 @@ export const SignupView = () => {
     <Card className="p-5 mt-5">
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="formUsername">
-          <Form.Label>Username:</Form.Label>
             <Form.Control
               type="text"
               value={username}
@@ -46,10 +45,11 @@ export const SignupView = () => {
               required
               minLength="5"
               maxLength="25"
+              placeholder="Username"
+              className="mb-4"
             />
         </Form.Group>
         <Form.Group controlId="formPassword">
-          <Form.Label>Password:</Form.Label>
             <Form.Control
               type="password"
               value={password}
@@ -57,19 +57,21 @@ export const SignupView = () => {
               required
               minLength="5"
               maxLength="25"
+              placeholder="Password"
+              className="mb-4"
             />
         </Form.Group>
         <Form.Group controlId="formEmail">
-          <Form.Label>Email:</Form.Label>
             <Form.Control
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              placeholder="Email"
+              className="mb-4"
             />
         </Form.Group>
         <Form.Group controlId="formBirthday">
-          <Form.Label>Birthday:</Form.Label>
             <Form.Control
               type="date"
               value={birthday}
@@ -78,7 +80,7 @@ export const SignupView = () => {
             />
         </Form.Group>
         <Row className="text-center">
-          <Button className="mt-5" type="submit"> Signup</Button>
+          <Button className="mt-4" type="submit"> Signup</Button>
           <Link to="/login" className="mt-4">Have an Account? Login!</Link>
         </Row>
       </Form>
