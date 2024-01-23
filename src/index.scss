@@ -12,10 +12,15 @@ button, .btn {
   background-color: $button-color;
   border-color: $button-color;
   color: $text-color;
-  &:hover {
-    background-color: $button-color;
-    border-color: $button-color;
+
+  &:hover, &:visited, &:active {
+    background-color: $button-color !important;
+    border-color: $button-color !important;
     color: $text-color;
+  }
+
+  &:active {
+    background-color: $button-color;
   }
 }
 
@@ -23,6 +28,8 @@ input, select {
   background-color: $text-color;
   padding: 6px;
   border-radius: 6px;
+  border: 1px solid $button-color;
+  box-shadow: none;
 }
 
 a {

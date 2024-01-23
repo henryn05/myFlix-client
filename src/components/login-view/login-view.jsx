@@ -40,7 +40,6 @@ export const LoginView = ({onLoggedIn}) => {
     <Card className="p-5 mt-5">
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="formUsername">
-          <Form.Label>Username:</Form.Label>
           <Form.Control
             type="text"
             value={username}
@@ -48,10 +47,10 @@ export const LoginView = ({onLoggedIn}) => {
             required
             minLength="5"
             maxLength="25"
+            placeholder="Username"
           />
         </Form.Group>
         <Form.Group controlId="formPassword">
-          <Form.Label>Password:</Form.Label>
           <Form.Control
             type="password"
             value={password}
@@ -59,6 +58,8 @@ export const LoginView = ({onLoggedIn}) => {
             required
             minLength="5"
             maxLength="25"
+            placeholder="Password"
+            className="mt-4"
           />
         </Form.Group>
         <Row className="d-flex text-center">
