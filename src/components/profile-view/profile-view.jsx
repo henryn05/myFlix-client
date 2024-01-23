@@ -88,7 +88,6 @@ export const ProfileView = ({ user, setUser, movies, addFavMovie, removeFavMovie
         <h1 className="text-center mb-4">User Info</h1>
         <Form onSubmit={handleUpdate}>
           <Form.Group controlId="formUsername">
-            <Form.Label>Username:</Form.Label>
               <Form.Control
                 type="text"
                 value={username}
@@ -96,36 +95,36 @@ export const ProfileView = ({ user, setUser, movies, addFavMovie, removeFavMovie
                 required
                 minLength="5"
                 maxLength="25"
+                className="mb-4"
               />
           </Form.Group>
           <Form.Group controlId="formEmail">
-            <Form.Label>Email:</Form.Label>
               <Form.Control
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
+                className="mb-4"
               />
           </Form.Group>
           <Form.Group controlId="formBirthday">
-            <Form.Label>Birthday:</Form.Label>
               <Form.Control
                 type="date"
                 value={birthday}
                 onChange={(e) => setBirthday(e.target.value)}
                 required
+                className="mb-4"
               />
           </Form.Group>
           <Row className="justify-content-center">
               <Button
-                className="mt-4"
+                className="mb-4"
                 type="submit"
                 onClick={handleUpdate}
               >
                 Save Changes
               </Button>
               <Button
-                className="mt-4"
                 onClick={handleDelete}
               >
                 Delete Account

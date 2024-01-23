@@ -13349,10 +13349,20 @@ body {
   background-color: #303f62;
 }
 
-button, .btn, button:hover, button:active, button:focus, .btn:hover, .btn:active, .btn:focus {
+button, .btn {
   color: #f5e8c7;
   background-color: #818fb4;
   border-color: #818fb4;
+}
+
+button:hover, button:visited, button:active, .btn:hover, .btn:visited, .btn:active {
+  color: #f5e8c7;
+  background-color: #818fb4 !important;
+  border-color: #818fb4 !important;
+}
+
+button:active, .btn:active {
+  background-color: #818fb4;
 }
 
 input, select {
