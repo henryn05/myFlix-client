@@ -27192,8 +27192,8 @@ const MainView = ()=>{
     _s();
     const storedUser = JSON.parse(localStorage.getItem("user"));
     const storedToken = localStorage.getItem("token");
-    const [user, setUser] = (0, _react.useState)(null);
-    const [token, setToken] = (0, _react.useState)(null);
+    const [user, setUser] = (0, _react.useState)(storedUser ? storedUser : null);
+    const [token, setToken] = (0, _react.useState)(storedToken ? storedToken : null);
     const [movies, setMovies] = (0, _react.useState)([]);
     const [searchInput, setSearchInput] = (0, _react.useState)("");
     const [genreSelect, setGenreSelect] = (0, _react.useState)("");
@@ -27414,7 +27414,7 @@ const MainView = ()=>{
         columnNumber: 5
     }, undefined);
 };
-_s(MainView, "2T8S+ypZQ9x1olh6I8E6Pb/Jfng=");
+_s(MainView, "KOzVr9z7phz9LEfZqiUIrXqzlyo=");
 _c = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");
@@ -39721,7 +39721,7 @@ const LoginView = ({ onLoggedIn })=>{
                 localStorage.setItem("user", JSON.stringify(data.user));
                 localStorage.setItem("token", data.token);
                 onLoggedIn(data.user, data.token);
-            } else alert("No such user");
+            } else "No such user";
         }).catch((e)=>{
             alert("Error occured");
         });
