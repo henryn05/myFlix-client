@@ -1,17 +1,35 @@
-**Who**
-This project is created for my potential employers and professional network.
+## HOW WAS THIS APP MADE
+This is another generic Netflix clone mainly built on the MERN tech-stack. React-Bootstrap and SCSS were used for styling whereas Render was used to host the backend API, and Netlify was used to host the frontend client view.
 
-**What**
-A generic Netflix clone mainly built on React.js, React-Boostrap, and SCSS.
+My role in this app's development was a fullstack developer as I developed both the front and backend of the app with no team.
 
-**When**
-Always and immediately. The code for this myflix app can always be viewed in a repository.
+## WHAT DOES THIS APP DO?
+Upon opening the app, the user will be prompted to login. If the user hasn't already created an account, they may signup. Once logged in, the user will be taken to the homepage, which is a catalog of movies.
 
-**Where**
-Anyone can be directed to this app via my portfolio website or be viewed directly from my GitHub repository to https://henryn05.github.io/myflix-client/.
+![Myflix Homepage](./img/myflix-app-screenshot.png)
 
-**Why**
-I made this app to progress on my frontend development skills such as working with React and React-Bootstrap. I also learned how to connect my frontend application with its backend counterpart and deploying it via Render and Netlify.
+The user can filter their list of movies via the genre filter and the search bar. Upon clicking the *more* button for a movie, the user will be presented with extra information regarding the movie selected.
 
-*Acknowledgements*
-I want to thank everyone at CareerFoundry for creating such an amazing course and providing me with an opportunity of a life time to work my way into the tech industry.
+![Myflix Movie Card](./img/myflix-card-screenshot.png)
+
+Upon this view, the user can also choose to add the film to their favorites list or return back to the homepage. They can view their favorites list via the profile tab where they can also change their user info.
+
+## HOW DO I RUN THIS ON MY LOCAL MACHINE?
+Before you begin, ensure you have [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed on your machine.
+
+Clone the repository:
+`git clone https://github.com/henryn05/myFlix-client.git`
+
+Navigate to the project directory:
+`cd myflix-client`
+
+Then, install the dependencies:
+`npm install`
+
+Finally, start the app:
+`npm start`
+
+To run tests:
+`npm test`
+
+Once the app is running, open your web browser and navigate to [http://localhost:1234](http://localhost:1234) to access the app.
