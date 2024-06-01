@@ -1,5 +1,5 @@
 ## HOW WAS THIS APP MADE
-This is another generic Netflix clone mainly built on the MERN tech-stack. React-Bootstrap and SCSS were used for styling whereas Render was used to host the backend API, and Netlify was used to host the frontend client view.
+This is another generic movie database mainly built on the MERN tech-stack. React-Bootstrap and SCSS were used for styling whereas Render was used to host the backend API, and Netlify was used to host the frontend client view.
 
 My role in this app's development was a fullstack developer as I developed both the front and backend of the app with no team. The app can be viewed via this link: https://myflix-hn05.netlify.app
 
