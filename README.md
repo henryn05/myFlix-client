@@ -1,9 +1,9 @@
-## HOW WAS THIS APP MADE
-This is another generic movie database mainly built on the MERN tech-stack. React-Bootstrap and SCSS were used for styling whereas Render was used to host the backend API, and Netlify was used to host the frontend client view.
+## How Was This App Made?
+This is a movie database mainly built on the MERN tech stack. This repository contains code for the frontend; React-Bootstrap and SCSS were used for styling whereas Render was used to host the backend API, and Netlify was used to host the frontend client view.
 
 My role in this app's development was a fullstack developer as I developed both the front and backend of the app with no team. The app can be viewed via this link: https://myflix-hn05.netlify.app
 
-## WHAT DOES THIS APP DO?
+## What Does This App Do?
 Upon opening the app, the user will be prompted to login. If the user hasn't already created an account, they may signup. Once logged in, the user will be taken to the homepage, which is a catalog of movies.
 
 ![Myflix Homepage](./img/myflix-app-screenshot.png)
@@ -14,7 +14,7 @@ The user can filter their list of movies via the genre filter and the search bar
 
 Upon this view, the user can also choose to add the film to their favorites list or return back to the homepage. They can view their favorites list via the profile tab where they can also change their user info.
 
-## HOW DO I RUN THIS ON MY LOCAL MACHINE?
+## How Do I Run This On My Local Machine
 Before you begin, ensure you have [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed on your machine.
 
 Clone the repository:
